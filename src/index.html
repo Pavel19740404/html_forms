@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="container">
+
+      <div class="cards">
+        <div class="card visa"></div>
+        <div class="card master-card"></div>
+        <div class="card mir"></div>
+        <div class="card american"></div>
+        <div class="card discover"></div>
+        <div class="card jcb"></div>
+        <div class="card diners"></div>
+      </div>
+
+      <div class="field">
+        <input type="text" placeholder="Credit card number" class="input-field" pattern="[0-9]*"/>
+        <button type="submit" class="btn">Click to validate</button>
+      </div>
+
+      <div class="answer">
+        <div class="success icon icon-check">
+          <span>Карта действительна</span>
+        </div>
+        <div class="failure icon icon-cancel">
+          <span>Неверный номер карты</span>
+        </div>
+      </div>
+
+  </div>
+
+</body>
+</html>
