@@ -3,7 +3,6 @@ import puppetteer from "puppeteer";
 import { fork } from "child_process";
 
 jest.setTimeout(30000); // default puppeteer timeout
-
 describe("Credit Card Validator form", () => {
   let browser = null;
   let page = null;
@@ -21,10 +20,18 @@ describe("Credit Card Validator form", () => {
     //   });
     // });
 
+    await new Promise((resolve, reject) => {
+    if (server.connected) {
+      process.send("ok");
+      resolve()
+    } else {
+        reject()
+    }
+    });
     browser = await puppetteer.launch({
-      headless: false, // show gui
-      slowMo: 100,
-      devtools: true, // show devTools
+      // headless: false, // show gui
+      // slowMo: 100,
+      // devtools: true, // show devTools
     });
     page = await browser.newPage();
   });
