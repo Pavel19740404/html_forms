@@ -32,7 +32,7 @@ describe("Credit Card Validator form", () => {
       // headless: false, // show gui
       // slowMo: 100,
       // devtools: true, // show devTools
-    });
+    
     page = await browser.newPage();
   });
 
