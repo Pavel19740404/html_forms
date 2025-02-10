@@ -1,4 +1,4 @@
-import puppetteer from "puppeteer";
+import puppeteer from "puppeteer";
 
 import { fork } from "child_process";
 
@@ -11,28 +11,24 @@ describe("Credit Card Validator form", () => {
 
   beforeAll(async () => {
     server = fork(`${__dirname}/e2e.server.js`);
-    // await new Promise((resolve, reject) => {
-    //   server.on("error", reject);
-    //   server.on("message", (message) => {
-    //     if (message === "ok") {
-    //       resolve();
-    //     }
-    //   });
-    // });
-
     await new Promise((resolve, reject) => {
-    if (server.connected) {
-      process.send("ok");
-      resolve()
-    } else {
-        reject()
-    }
-    });
-    browser = await puppetteer.launch({
-      // headless: false, // show gui
-      // slowMo: 100,
-      // devtools: true, // show devTools
-    });
+      if (server.connected) {
+          process.send('ok');
+          resolve()
+      } else {
+          reject();
+      }
+  });
+
+  const options = {
+      args: ['--no-sandbox', '--disable-setuid-sandbox'], // настройка для сред ci/cd
+      slowMo: 100,
+      // расскомментировать для локального прогона и закомменитровать для ci/cd
+      //headless: false, 
+      //devtools: false,
+  }
+
+  browser = await puppeteer.launch(options);
     page = await browser.newPage();
   });
 
