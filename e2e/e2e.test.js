@@ -35,7 +35,7 @@ describe("tooltip", () => {
     await browser.close();
     server.kill();
   });
-  describe("button should tooltip and hide popover", () => {
+  describe("tooltip show on page", () => {
     beforeEach(async () => {
       await page.goto(baseUrl);
     });
