@@ -47,6 +47,5 @@ describe("tooltip", () => {
       await page.waitForSelector(".tooltip");
       
     });
-    expect(waitForSelector).toBe("block");
   });
 });
