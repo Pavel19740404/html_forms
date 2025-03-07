@@ -45,7 +45,6 @@ describe("tooltip", () => {
       const button = await page.$(".btn");
       await button.click();
       await page.waitForSelector(".tooltip");
-      
     });
   });
 });
